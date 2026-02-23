@@ -6,6 +6,11 @@ function ContactCTA() {
     phone: "",
     message: "",
   });
+
+  const [loading,setLoading] = useState(false);
+  const [success,setSuccess] = useState("");
+  const [error,setError] = useState("");
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -16,7 +21,11 @@ function ContactCTA() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(
+    setLoading(true)
+    setSuccess("")
+    setError("")
+
+    try {const res = await fetch(
       "http://127.0.0.1:8000/api/contact/submit/",
       {
         method: "POST",
@@ -29,7 +38,26 @@ function ContactCTA() {
 
     const data = await res.json();
 
-    alert(data.message);
+    if(res.ok){
+      setSuccess("Thank you for your interest. We'll contact you soon!")
+      setFormData({
+        name:"",
+        email:"",
+        phone:"",
+        message:""
+      })
+    }
+    else{
+      setError(data.error || "Oops! Something went wrong!")
+    }}
+
+    catch (err){
+      setError("Server error. Please try again later")
+    }
+
+    finally{
+      setLoading(false);
+    }
   };
 
   return (
@@ -132,6 +160,7 @@ function ContactCTA() {
               <input
                 type="text"
                 placeholder="Your Name"
+                value={formData.name}
                 className="
                   w-full bg-transparent
                   border-b border-white/20
@@ -154,6 +183,7 @@ function ContactCTA() {
               <input
                 type="email"
                 placeholder="Your Email Address"
+                value={formData.email}
                 className="
                   w-full bg-transparent
                   border-b border-white/20
@@ -175,6 +205,7 @@ function ContactCTA() {
               <input
                 type="text"
                 placeholder="Phone Number"
+                value={formData.phone}
                 className="
                   w-full bg-transparent
                   border-b border-white/20
@@ -196,6 +227,7 @@ function ContactCTA() {
               <textarea
                 rows="3"
                 placeholder="Type your query here"
+                value={formData.message}
                 className="
                   w-full bg-transparent
                   border-b border-white/20
@@ -211,7 +243,9 @@ function ContactCTA() {
             {/* Button */}
             <button
               type="submit"
-              className="
+              disabled={loading}
+              className=
+                {`w-full
                 bg-gradient-to-r
                 from-blue-600
                 to-cyan-500
@@ -221,10 +255,25 @@ function ContactCTA() {
                 shadow-lg
                 hover:shadow-cyan-500/40
                 transition
-              "
+                ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
+              
             >
-              Send Message
+              {loading ? "Sending...": "Send message"}
             </button>
+
+            {/* Success */}
+{success && (
+  <p className="text-green-400 text-sm mt-4 text-center">
+    {success}
+  </p>
+)}
+
+{/* Error */}
+{error && (
+  <p className="text-red-400 text-sm mt-4 text-center">
+    {error}
+  </p>
+)}
 
           </form>
 
