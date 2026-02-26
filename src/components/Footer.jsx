@@ -56,17 +56,23 @@ function Footer() {
   <h4 className="font-bold mb-6 text-slate-900 dark:text-white">Services</h4>
   <ul className="space-y-4 text-slate-500 dark:text-gray-400 text-sm">
     {["Web App Development", "Blockchain Solutions", "Software Testing", "Staff Augmentation", "AI Integrations"].map((item) => {
-      // Check if it's the Web App link
-      const isWebApp = item === "Web App Development";
       
+      // 1. Define your routes in a simple mapping object
+      const routes = {
+        "Web App Development": "/services/web-app-development",
+        "Blockchain Solutions": "/services/blockchain-solutions",
+      };
+
+      // 2. Determine the path, default to "#" if not built yet
+      const path = routes[item] || "#";
+
       return (
         <li key={item}>
           <Link
-            to={isWebApp ? "/services/web-app-development" : "#"}
+            to={path}
             className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors duration-300 flex items-center group"
-            onClick={() => window.scrollTo(0, 0)} // Forces scroll to top on click
+            onClick={() => window.scrollTo(0, 0)}
           >
-            {/* Optional: Add a small arrow that appears on hover */}
             <span className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 mr-2 text-cyan-400">
               →
             </span>
