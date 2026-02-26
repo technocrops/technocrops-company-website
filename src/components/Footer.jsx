@@ -1,6 +1,7 @@
 import { FaLinkedinIn, FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -61,6 +62,9 @@ function Footer() {
       const routes = {
         "Web App Development": "/services/web-app-development",
         "Blockchain Solutions": "/services/blockchain-solutions",
+        "Software Testing": "/services/software-testing",
+        "Staff Augmentation": "/services/staff-augmentation",
+        "AI Integrations": "/services/ai-integrations",
       };
 
       // 2. Determine the path, default to "#" if not built yet
@@ -86,15 +90,33 @@ function Footer() {
 
           {/* Column 3 — Quick Links */}
           <div>
-            <h4 className="font-bold mb-6 text-slate-900 dark:text-white">Quick Links</h4>
-            <ul className="space-y-3 text-slate-500 dark:text-gray-400 text-sm">
-              {["About Us", "Services", "Careers", "Blog", "Contact"].map((item) => (
-                <li key={item} className="hover:text-blue-600 dark:hover:text-cyan-400 cursor-pointer transition-colors">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+  <h4 className="font-bold mb-6 text-slate-900 dark:text-white">Quick Links</h4>
+  <ul className="space-y-4 text-slate-500 dark:text-gray-400 text-sm">
+    {["About Us", "Services", "Contact"].map((item) => {
+      // Map the text to your section IDs on the Home page
+      const sectionMap = {
+        "About Us": "about",
+        "Services": "services",
+        "Contact": "contact",       
+      };
+
+      return (
+        <li key={item}>
+          <HashLink
+            smooth
+            to={`/#${sectionMap[item]}`}
+            className="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors duration-300 flex items-center group"
+          >
+            <span className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 mr-2 text-cyan-400">
+              →
+            </span>
+            {item}
+          </HashLink>
+        </li>
+      );
+    })}
+  </ul>
+</div>
 
           {/* Column 4 — Contact */}
           <div>

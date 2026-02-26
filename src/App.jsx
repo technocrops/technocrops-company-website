@@ -5,6 +5,9 @@ import Footer from "./components/Footer";
 import { ThemeProvider } from './ThemeContext';
 import WebAppPage from "./pages/WebAppPage";
 import BlockchainPage from "./pages/BlockchainPage";
+import TestingPage from "./pages/TestingPage";
+import StaffAugPage from "./pages/StaffAugPage";
+import AIPage from "./pages/AIPage";
 
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/services/web-app-development" element={<WebAppPage />} />
         <Route path="/services/blockchain-solutions" element={<BlockchainPage />} />
+        <Route path="/services/software-testing" element={<TestingPage />} />
+        <Route path="/services/staff-augmentation" element={<StaffAugPage />} />
+        <Route path="/services/ai-integrations" element={<AIPage />} />
       </Routes>
 
       <Footer />
