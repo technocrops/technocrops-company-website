@@ -42,7 +42,9 @@ function ContactCTA() {
         setError(data.error || "Oops! Something went wrong!");
       }
     } catch (err) {
-      setError("Server error. Please try again later");
+      const errorMessage = err.response?.data?.error || err.message || "Server error";
+  setError(`Backend Error: ${errorMessage}`);
+  console.error("Full Error Object:", err);
     } finally {
       setLoading(false);
     }

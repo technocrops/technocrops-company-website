@@ -68,7 +68,7 @@ print(f"--- DATABASE IS LOOKING FOR CERT AT: {cert_path} ---")
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': 'test',
         'USER': '2MXvw1RnZMRyQAy.root',
         'PASSWORD': 'xZU0GEctDL0nSvyG',
@@ -78,6 +78,7 @@ DATABASES = {
             'ssl': {
                 'ca': cert_path,
             },
+            'use_pure': True,
             'charset': 'utf8mb4',
         },
     }
