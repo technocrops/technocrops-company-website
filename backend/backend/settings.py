@@ -21,6 +21,8 @@ SECRET_KEY = 'django-insecure-wmb56+j=sf_uovma%trc44g86$54cd&sq-ix1k22o-a51v)3wd
 DEBUG = False
 ALLOWED_HOSTS = ['*']
 
+EMAIL_TIMEOUT = 10
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
