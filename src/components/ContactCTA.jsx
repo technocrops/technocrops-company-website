@@ -90,7 +90,7 @@ function ContactCTA() {
                   <div>
                     <h4 className="font-bold text-lg">Our Location</h4>
                     <p className="text-slate-500 dark:text-gray-400 text-sm">
-                      M5, First Floor, Shagun Tower, Vijay Nagar, Indore
+                      101, GD Prime , Bhawarkua Rd, Indore
                     </p>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ function ContactCTA() {
                   <div>
                     <h4 className="font-bold text-lg">Email Us</h4>
                     <p className="text-slate-500 dark:text-gray-400 text-sm">
-                      info@technocorps.com<br />contact@technocorps.com
+                      hr@technocorps.com<br />contact@technocorps.com
                     </p>
                   </div>
                 </div>

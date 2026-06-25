@@ -37,7 +37,7 @@ const PrivacyPolicy = () => {
           <section className="p-6 bg-blue-500/5 border border-blue-500/10 rounded-2xl">
             <h2 className="text-xl font-semibold mb-2 text-blue-500">Contact Us</h2>
             <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-            <p className="font-medium mt-2">legal@technocorps.com</p>
+            <p className="font-medium mt-2">hr@technocorps.com</p>
           </section>
         </div>
       </div>

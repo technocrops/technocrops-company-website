@@ -124,15 +124,15 @@ function Footer() {
             <ul className="space-y-4 text-slate-500 dark:text-gray-400 text-sm">
               <li className="flex gap-3">
                 <MapPin size={18} className="text-blue-600 dark:text-cyan-400 shrink-0" />
-                <span>M5, First Floor, Shagun Tower, Vijay Nagar, Indore</span>
+                <span>101, GD Prime , Bhawarkua Rd, Indore</span>
               </li>
               <li className="flex gap-3">
                 <Mail size={18} className="text-blue-600 dark:text-cyan-400 shrink-0" />
-                <span>info@technocorps.com</span>
+                <span>hr@technocorps.com</span>
               </li>
               <li className="flex gap-3">
                 <Phone size={18} className="text-blue-600 dark:text-cyan-400 shrink-0" />
-                <span>+91 99999 99999</span>
+                <span>+91 94259 39505</span>
               </li>
             </ul>
           </div>
@@ -293,7 +293,7 @@ export default Footer;
 //               </li>
 
 //               <li>
-//                 ✉️ info@technocorps.com
+//                 ✉️ hr@technocorps.com
 //               </li>
 
 //               <li>
